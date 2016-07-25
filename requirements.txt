@@ -1,0 +1,3 @@
+numpy == 1.11.0
+reach == 0.0.4
+scikit_learn == 0.17.1
