@@ -9,6 +9,8 @@ Yarn requires:
 - A set of concepts, with their descriptions
 - A set of documents with their ambiguous terms marked
 
+The representations we used can be downloaded from the [BioASQ website](http://bioasq.org/news/bioasq-releases-continuous-space-word-vectors-obtained-applying-word2vec-pubmed-abstracts).
+
 If you want to replicate the original experiments, you need to adhere to the formats below. If you want to use Yarn for your own experiments, e.g. just creating concept representations, you can choose your own format.
 
 ## concepts
