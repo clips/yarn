@@ -1,6 +1,20 @@
 # yarn
 
-*Yarn* is a system for creating concept representations from an ontology containing descriptions, and then using these concept descriptions to disambiguate terms, and link them to the appropriate concept. For more information, see the paper _Using Distributed Representations to Disambiguate Biomedical and Clinical Concepts_ by Stéphan Tulkens, Simon Šuster and Walter Daelemans, which was presented at the [BioNLP Workshop at ACL 2016](http://www.aclweb.org/aclwiki/index.php?title=BioNLP_Workshop).
+Yarn is a system for creating vectorial concept representations from an ontology containing descriptions of these concepts. These concept representations can then be used to disambiguate terms, and link them to the appropriate concept. 
+
+For more information, see the paper _Using Distributed Representations to Disambiguate Biomedical and Clinical Concepts_ by Stéphan Tulkens, Simon Šuster and Walter Daelemans, which was presented at the [BioNLP Workshop at ACL 2016](http://www.aclweb.org/aclwiki/index.php?title=BioNLP_Workshop).
+
+# License
+
+MIT
+
+# Requirements
+
+- Python 3
+- Numpy
+- [Reach](https://github.com/stephantul/reach)
+
+All are available from pip
 
 # Usage
 
@@ -9,7 +23,7 @@ Yarn requires:
 - A set of concepts, with their descriptions
 - A set of documents with their ambiguous terms marked
 
-The representations we used can be downloaded from the [BioASQ website](http://bioasq.org/news/bioasq-releases-continuous-space-word-vectors-obtained-applying-word2vec-pubmed-abstracts).
+The word vectors we used can be downloaded from the [BioASQ website](http://bioasq.org/news/bioasq-releases-continuous-space-word-vectors-obtained-applying-word2vec-pubmed-abstracts).
 
 If you want to replicate the original experiments, you need to adhere to the formats below. If you want to use Yarn for your own experiments, e.g. just creating concept representations, you can choose your own format.
 
