@@ -2,7 +2,7 @@
 
 Yarn is a system for creating vectorial concept representations from an ontology containing descriptions of these concepts. These concept representations can then be used to disambiguate terms, and link them to the appropriate concept. 
 
-For more information, see the paper _Using Distributed Representations to Disambiguate Biomedical and Clinical Concepts_ by Stéphan Tulkens, Simon Šuster and Walter Daelemans, which was presented at the [BioNLP Workshop at ACL 2016](http://www.aclweb.org/aclwiki/index.php?title=BioNLP_Workshop).
+For more information, see the paper [_Using Distributed Representations to Disambiguate Biomedical and Clinical Concepts_](http://www.aclweb.org/anthology/W/W16/W16-29.pdf#page=89) by Stéphan Tulkens, Simon Šuster and Walter Daelemans, which was presented at the [BioNLP Workshop at ACL 2016](http://www.aclweb.org/aclwiki/index.php?title=BioNLP_Workshop).
 
 # License
 
