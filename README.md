@@ -8,6 +8,21 @@ For more information, see the paper [_Using Distributed Representations to Disam
 
 MIT
 
+# Contributors
+
+Stéphan Tulkens, Simon Suster, and Walter Daelemans.
+If you use this work or build upon it, please cite our paper, as follows:
+
+```
+@inproceedings{tulkens2016using,
+  title={Using Distributed Representations to Disambiguate Biomedical and Clinical Concepts},
+  author={Tulkens, St{\'e}phan and {\v{S}}uster, Simon and Daelemans, Walter},
+  booktitle={Proceedings of the 15th Workshop on Biomedical Natural Language Processing},
+  pages={77--82},
+  year={2016}
+}
+```
+
 # Requirements
 
 - Python 3
