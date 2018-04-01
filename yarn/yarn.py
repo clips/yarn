@@ -76,7 +76,6 @@ def compute_nearest_neighbours(definitions, abstracts):
             targets, matrix = dict_to_tuple(definitions[k])
         except KeyError:
             continue
-
         matrix = Reach.normalize(np.asarray(matrix))
         vectors = Reach.normalize(np.asarray(vectors))
 
@@ -219,6 +218,8 @@ class Yarn(object):
 
         # Combines all transformed representations into a single
         # representation.
+        if not transformed:
+            return np.zeros((self.vectorizer.size))
         return self.combiner(transformed, axis=0)
 
     def vectorize_window(self,
@@ -257,34 +258,35 @@ class Yarn(object):
 
         """
         transformed = []
+        focus = self.remover.sub(" ", focus_word).split()
+        reg = re.compile(" ".join(focus))
 
         for t in texts:
-
             # Remove all non-alphanumeric characters.
             t = self.remover.sub(" ", t.lower()).split()
             # Do the same thing to the focus word.
-            focus = self.remover.sub(" ", focus_word).split()
 
             # Remove all stop words, except when the
             # stop word is a part of the focus word.
-            t = [x for x in t if x not in ENGLISH_STOP_WORDS
-                 or x in focus_word]
+            t = " ".join([x for x in t if x not in ENGLISH_STOP_WORDS
+                          or x in focus_word])
 
             intermediate = []
 
-            for idx, w in enumerate(t):
+            for w in reg.finditer(t):
 
-                if w in focus:
+                # The start and end characters of the focus word.
+                begin, end = w.span()
 
-                    # Create the window
-                    # From 0 or idx - window size to the focus word.
-                    window = t[max(0, idx - window_size):idx]
-                    if include_focus:
-                        # Add the focus word
-                        window.extend(focus)
-                    # From the focus word to focus word + window size
-                    window.extend(t[idx + 1:idx + window_size + 1])
-
+                window = t[:begin].split()[-window_size:]
+                if include_focus:
+                    # Add the focus word
+                    window.extend(focus)
+                # From the focus word to focus word + window size
+                window.extend(t[end:].split()[:window_size])
+                if not window:
+                    intermediate.append(np.zeros((self.vectorizer.size)))
+                else:
                     # Compose the window into a representation.
                     vectors = self.vectorizer.vectorize(window)
                     intermediate.append(self.composer_2(vectors, axis=0))
