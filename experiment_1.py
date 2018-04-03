@@ -16,7 +16,8 @@ if __name__ == "__main__":
     path_to_embeddings = ""
     use_subset = False
 
-    embeddings = Reach.load(path_to_embeddings, header=True)
+    # Be sure to set add_unk to True, or to mark the UNK index.
+    embeddings = Reach.load(path_to_embeddings, header=True, unk_word="UNK")
 
     logging.info("loaded embeddings.")
 

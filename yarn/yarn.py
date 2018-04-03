@@ -211,7 +211,8 @@ class Yarn(object):
             # Compose the word vectors for a given text into a
             # single representation.
             x = self.vectorizer.vectorize(t,
-                                          remove_oov=True)
+                                          remove_oov=False,
+                                          norm=False)
             vector = self.composer_1(x, axis=0)
             transformed.append(vector)
 
@@ -291,7 +292,8 @@ class Yarn(object):
                 else:
                     # Compose the window into a representation.
                     vectors = self.vectorizer.vectorize(window,
-                                                        remove_oov=True)
+                                                        remove_oov=False,
+                                                        norm=False)
                     intermediate.append(self.composer_2(vectors, axis=0))
 
             # Combine all composed windows into a single representation.
